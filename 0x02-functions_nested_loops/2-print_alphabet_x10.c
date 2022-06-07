@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_alphabet - Function prototype
+ * print_alphabet_x10 - Function prototype
  * Description: Prints the letters of the alphabet in lowercase 10 times
  * Return: void
  */
