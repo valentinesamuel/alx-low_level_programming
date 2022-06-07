@@ -5,6 +5,7 @@
  * Description: Prints the letters of the alphabet in lowercase 10 times
  * Return: void
  */
+
 void print_alphabet_x10(void)
 {
 	char alpha;
@@ -13,7 +14,7 @@ void print_alphabet_x10(void)
 	for (idx = 0; idx < 10; idx++)
 	{
 		alpha = 'a';
-		while (alpha <= 'x')
+		while (alpha <= 'z')
 		{
 			_putchar(alpha);
 			alpha++;
