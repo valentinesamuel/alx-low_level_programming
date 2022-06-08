@@ -6,7 +6,7 @@
  * Description: Prints the last digit of a number
  * Return: The last digit of the number
  */
-int print_last_digit(int num)
+int _print_last_digit(int num)
 {
 	num = num % 10;
 
