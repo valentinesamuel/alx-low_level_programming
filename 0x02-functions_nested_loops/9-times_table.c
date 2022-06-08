@@ -7,35 +7,41 @@
  */
 void times_table(void)
 {
-	int internalIdx;
-	int externalIdx;
-	int product;
+	int r;
 
-	for (externalIdx = 0; externalIdx <= 0; externalIdx++)
+	for (r = 0; r <= 9; r++)
 	{
-		for (internalIdx = 0; internalIdx <= 9; internalIdx++)
+		int c;
+
+		for (c = 0; c <= 9; c++)
 		{
-			product = externalIdx + internalIdx;
-			if (internalIdx != 0)
+			int p = r * c;
+			int t = p / 10;
+			int o = p % 10;
+
+			if (c != 0)
 			{
-				_putchar(',');
-				_putchar(' ');
-			}
-			if (product >= 10)
-			{
-				_putchar((product / 10) + '0');
-				_putchar((product % 10) + '0');
-			}
-			else if ((product < 10) && (internalIdx != 0))
-			{
-				_putchar(' ');
-				_putchar((product % 10) + '0');
+				if (p < 10)
+				{
+					_putchar(',');
+					_putchar(' ');
+					_putchar(' ');
+					_putchar(o + '0');
+				}
+				else
+				{
+					_putchar(',');
+					_putchar(' ');
+					_putchar(t + '0');
+					_putchar(o + '0');
+				}
 			}
 			else
 			{
-				_putchar((product % 10) + '0');
+				_putchar('0');
 			}
 		}
-			_putchar('\n');
+
+		_putchar('\n');
 	}
 }
