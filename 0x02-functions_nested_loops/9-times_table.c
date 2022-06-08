@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * time_table - Function prototype
+ * times_table - Function prototype
  * Description: Prints the times table from 0 to 9
  * Return: void
  */
-void time_table(void)
+void times_table(void)
 {
 	int internalIdx;
 	int externalIdx;
