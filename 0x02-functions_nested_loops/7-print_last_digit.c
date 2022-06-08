@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * _print_last_digit - Function prototype
+ * print_last_digit - Function prototype
  * @num: The number to check
  * Description: Prints the last digit of a number
  * Return: The last digit of the number
  */
-int _print_last_digit(int num)
+int print_last_digit(int num)
 {
 	num = num % 10;
 
