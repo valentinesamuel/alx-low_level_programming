@@ -11,7 +11,7 @@ void times_table(void)
 	int externalIdx;
 	int product;
 
-	for (externalIdx = 0; external <= 0; externalIdx++)
+	for (externalIdx = 0; externalIdx <= 0; externalIdx++)
 	{
 		for (internalIdx = 0; internalIdx <= 9; internalIdx++)
 		{
