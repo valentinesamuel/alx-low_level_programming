@@ -11,7 +11,6 @@
 */
 int _strcmp(char *s1, char *s2)
 {
-	int result;
 	int iterator;
 
 	while (s1[iterator] != '\0' && s2[iterator] != '\0')
