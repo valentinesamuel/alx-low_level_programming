@@ -9,8 +9,6 @@
  *negative number if s1 < s2
  *positive number if s1 > s2
 */
-#include "main.h"
-
 int _strcmp(char *s1, char *s2)
 {
 	int result;
