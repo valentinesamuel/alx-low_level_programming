@@ -1,14 +1,13 @@
 #include "main.h"
 
 /**
- * _strcmp - Function which compare two strings and
- *@s1: first string
- *@s2:second string
- *Return:
- *returns zero if s1 == s2
- *returns negative number if s1 < s2
- *returns positive number if s1 > s2
-*/
+ * _strcmp - compare strings
+ * @s1: first input char
+ * @s2: second input char
+ *
+ * Description: the function compares two strings
+ * Return: character count
+ */
 int _strcmp(char *s1, char *s2)
 {
 	int iterator;
