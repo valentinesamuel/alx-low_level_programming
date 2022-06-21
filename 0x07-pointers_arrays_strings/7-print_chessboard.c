@@ -3,11 +3,12 @@
 /**
  * print_chessboard - Print a chessboard
  * @a: Given array holding chessboard
+ *
+ * Return: Nothing
  */
 void print_chessboard(char (*a)[8])
 {
-	unsigned int i;
-	unsigned int j;
+	int i, j;
 
 	i = 0;
 	while (i < 8)
