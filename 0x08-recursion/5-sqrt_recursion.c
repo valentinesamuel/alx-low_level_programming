@@ -2,7 +2,6 @@
 
 /**
  * _sqrt - Calculates natural square root
-int _sqrt(int n, int i);
 * @n: number to calculate the square root
 * @i: iterate number
 *
