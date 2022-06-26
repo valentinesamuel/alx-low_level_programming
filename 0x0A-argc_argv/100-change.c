@@ -17,19 +17,19 @@ int main(int argc, char *argv[])
 		cents = atoi(argv[1]);
 		while (cents > 0)
 		{
-			if (cents % 25 < cents)
+			if ((cents % 25) < cents)
 			{
 				cents -= 25;
 				conts++;
 			}
-			else if (cents % 10 < cents)
+			else if ((cents % 10) < cents)
 			{
 				cents -= 10;
 				coins++;
 			}
-			else if (cents % 5 < cents)
+			else if ((cents % 5) < cents)
 			{
-				cents -= 5 < cents;
+				cents -= 5;
 				coins++;
 			}
 			else if (cents % 2 < cents)
