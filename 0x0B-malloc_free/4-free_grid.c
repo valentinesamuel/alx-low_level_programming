@@ -3,7 +3,7 @@
 
 /**
  * free_grid - frees the malloc'd memory of a 2-dim array
- * @width: width of the 2-dim array
+ * @grid: the 2-dim array
  * @height: height of the 2-dim array
  * Return: malloc'd memory
  */
