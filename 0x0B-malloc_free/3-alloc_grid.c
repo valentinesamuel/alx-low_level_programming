@@ -10,30 +10,31 @@
 int **alloc_grid(int width, int height)
 {
 	int i, j;
-	int **twoDimArr;
+	int **grid;
 
 	if (width <= 0 || height <= 0)
+		return (NULL);
+	grid = malloc(sizeof(int *) * height);
+	if (grid == NULL)
 	{
 		return (NULL);
 	}
-	twoDimArr = malloc(height * sizeof(*twoDimArr));
-	if (twoDimArr == NULL)
-		return (NULL);
 	for (i = 0; i < height; i++)
 	{
-		twoDimArr[i] = malloc(width * sizeof(int));
-		if (twoDimArr[i] == NULL)
+		grid[i] = malloc(sizeof(int) * width);
+		if (grid[i] == NULL)
 		{
-			for (j = 0; j < i; j++)
+			for (i = i - 1; i >= 0; i--)
 			{
-				free(twoDimArr[j]);
+				free(grid[i]);
+				return (NULL);
 			}
-			return (NULL);
 		}
 		for (j = 0; j < width; j++)
 		{
-			twoDimArr[i][j] = 0;
+			grid[i][j] = 0;
+			return (grid);
 		}
 	}
-	return (twoDimArr);
+
 }
