@@ -7,7 +7,7 @@
  * @height: height of the 2-dim array
  * Return: malloc'd memory
  */
-int free_grid(int **grid, int height)
+void free_grid(int **grid, int height)
 {
 	int i;
 
