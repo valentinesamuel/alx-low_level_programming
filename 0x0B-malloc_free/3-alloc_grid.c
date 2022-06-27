@@ -16,7 +16,7 @@ int **alloc_grid(int width, int height)
 	{
 		return (NULL);
 	}
-	twoDimArr = malloc(height * sizeof(*a));
+	twoDimArr = malloc(height * sizeof(*twoDimArr));
 	if (twoDimArr == NULL)
 		return (NULL);
 	for (i = 0; i < height; i++)
