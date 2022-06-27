@@ -16,19 +16,19 @@ int **alloc_grid(int width, int height)
 	{
 		return (NULL);
 	}
-	twoDimArr = malloc(height * sizeof(int));
+	twoDimArr = malloc(height * sizeof(*a));
 	if (twoDimArr == NULL)
-	{
 		return (NULL);
-		free(twoDimArr);
-	}
 	for (i = 0; i < height; i++)
 	{
 		twoDimArr[i] = malloc(width * sizeof(int));
 		if (twoDimArr[i] == NULL)
 		{
+			for (j = 0; j < i; j++)
+			{
+				free(twoDimArr[j]);
+			}
 			return (NULL);
-			free(twoDimArr[i]);
 		}
 		for (j = 0; j < width; j++)
 		{
