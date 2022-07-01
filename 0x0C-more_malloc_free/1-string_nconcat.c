@@ -2,6 +2,21 @@
 #include <stdlib.h>
 
 /**
+ * len - checks the length of the given input
+ * @list: the list
+ * Return: length
+ */
+int len(char *list)
+{
+	int iterator = 0;
+	while (list[iterator] != '\0')
+	{
+		iterator++;
+	}
+	return (iterator);
+}
+
+/**
  * string_nconcat - joins two strings based on n bytes
  * @s1: first string
  * @s2: second string
@@ -10,36 +25,54 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
+	unsigned int lenofs1 = 0;
+	unsigned int lenofs2 = 0;
+	unsigned int i = 0;
+	unsigned int j=0;
 	char *newmem;
-	unsigned int length = n;
-	unsigned int i;
 
-	if (s1 == NULL)
+	if(s1 == NULL)
 	{
 		s1 = "";
 	}
-	if (s2 == NULL)
+	if(s2 == NULL)
 	{
 		s2 = "";
 	}
-	for (i = 0; s1[i]; i++)
+	lenofs1 = len(s1);
+	lenofs2 = len(s2);
+	if (n >= lenofs2)
 	{
-		length++;
+		newmem = malloc_checked((lenofs1 + lenofs2) * sizeof(char));
+		while(i < lenofs1)
+		{
+			newmem[i] = s1[i];
+			i++;
+		}
+		while(j < lenofs2)
+		{
+			newmem[i] = s2[j];
+			i++;
+			j++;
+		}
+		newmem[i] = '\0';
+
 	}
-	newmem = malloc(sizeof(char) * (length + 1));
-	if (newmem == NULL)
+	else
 	{
-		return (NULL);
+		newmem = malloc_checked((lenofs1 + n) * sizeof(char));
+		while (i < lenofs1)
+		{
+			newmem[i] = s1[i];
+			i++;
+		}
+		while(j < n)
+		{
+			newmem[i] = s2[j];
+			i++;
+			j++;
+		}
+		newmem[i] = '\0';
 	}
-	length = 0;
-	for (i = 0; s1[i]; i++)
-	{
-		newmem[length++] = s1[i];
-	}
-	for (i = 0; s2[i] && i < n; i++)
-	{
-		newmem[length++] = '\0';
-	}
-	newmem[length] = '\0';
 	return (newmem);
 }
