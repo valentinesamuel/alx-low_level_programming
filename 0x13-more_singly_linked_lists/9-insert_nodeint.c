@@ -1,45 +1,44 @@
 #include "lists.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
- * insert_nodeint_at_index - insert node at index
- * @head: pointer to the first node
- * @idx: position
- * @n: value
- * Return: newnode
-*/
+ * insert_nodeint_at_index - Inserts a new node to a listint_t
+ *                           list at a given position.
+ * @head: A pointer to the address of the
+ *        head of the listint_t list.
+ * @idx: The index of the listint_t list where the new
+ *       node should be added - indices start at 0.
+ * @n: The integer for the new node to contain.
+ * Return: If the function fails - NULL.
+ *         Otherwise - the address of the new node.
+ */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *newnode = NULL;
-	listint_t *traversal = NULL;
+	listint_t *new, *copy = *head;
+	unsigned int node;
 
-	newnode = malloc(sizeof(listint_t));
-	if (newnode == NULL)
-	{
-		free(newnode);
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
 		return (NULL);
-	}
 
-	newnode->n = n;
+	new->n = n;
+
 	if (idx == 0)
 	{
-		newnode->next = *head;
-		*head = newnode;
-		return (newnode);
+		new->next = copy;
+		*head = new;
+		return (new);
 	}
 
-	while ((idx - 1) > 0)
+	for (node = 0; node < (idx - 1); node++)
 	{
-		if (traversal == NULL)
-		{
-			free(newnode);
+		if (copy == NULL || copy->next == NULL)
 			return (NULL);
-		}
-		traversal = traversal->next;
-		idx--;
+
+		copy = copy->next;
 	}
-	newnode->next = traversal->next;
-	traversal->next = newnode;
-	return (newnode);
+
+	new->next = copy->next;
+	copy->next = new;
+
+	return (new);
 }
