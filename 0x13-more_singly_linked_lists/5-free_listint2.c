@@ -9,18 +9,15 @@
 
 void free_listint2(listint_t **head)
 {
-	listint_t *actual  = NULL;
-	listint_t *traversal = NULL;
+	listint_t *tmp;
 
-	if (*head == NULL)
+	if (head == NULL)
 		return;
-	actual = *head;
-	while (actual != NULL)
+	while (*head)
 	{
-		traversal = actual->next;
-		actual->next = NULL;
-		free(actual);
-		actual = traversal;
+		tmp = (*head)->next;
+		free(*head);
+		*head = tmp;
 	}
-	*head = NULL;
+	head = NULL;
 }
