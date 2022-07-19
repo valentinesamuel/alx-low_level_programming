@@ -1,33 +1,39 @@
 #include "lists.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
- * add_nodeint - add a node at the end of a list_t list
+ * add_nodeint_end - calculate the number of elements in a list_t list
  * @head: pointer to the head node
- * @n: integer of the node
- * Return: address of the new node
+ * @n: integer of the first node
+ * Return: total number of list_t elements
 **/
-listint_t *add_nodeint(listint_t **head, const int n)
+listint_t *add_nodeint_end(listint_t **head, const int n)
 {
-	listint_t *newnode = NULL;
+	listint_t *newNode = NULL;
+	listint_t *traversalnode = NULL;
 
-	newnode = malloc(sizeof(listint_t));
-	if (newnode == NULL)
+	newNode = malloc(sizeof(listint_t));
+	if (newNode == NULL)
 	{
-		free(newnode);
+		free(newNode);
 		return (NULL);
 	}
-	newnode->n = n;
+	newNode->n = n;
+	newNode->next = NULL;
+	traversalnode = *head;
 	if (*head != NULL)
 	{
-		newnode->next = *head;
-		*head = newnode;
+		while (traversalnode->next != NULL)
+		{
+			traversalnode = traversalnode->next;
+		}
+		traversalnode->next = newNode;
 	}
 	else
 	{
-		*head = newnode;
-		newnode->next = NULL;
+		*head = newNode;
 	}
-	return (newnode);
+	return (newNode);
 }
