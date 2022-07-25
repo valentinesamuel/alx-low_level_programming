@@ -6,6 +6,8 @@
  * @exitCode: exit code to stop
  * @msg: the error message to be printed
  * @fileName: the name of the file
+ * Return: nothing
+ * Description: error message abstraction
  */
 void errorMsg(int exitCode, const char *msg, const char *fileName)
 {
@@ -21,7 +23,8 @@ void errorMsg(int exitCode, const char *msg, const char *fileName)
 */
 int main(int argc, char **argv)
 {
-	int fd_from, fd_to, readfile, writefile, bytesinprocess = 1024, close_from, close_to;
+	int fd_from, fd_to, readfile, writefile;
+	int bytesinprocess = 1024, close_from, close_to;
 	char buffer[1024];
 
 	if (argc != 3)
@@ -35,11 +38,13 @@ int main(int argc, char **argv)
 	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd_to == -1)
 		errorMsg(99, "Error: Can't write to", argv[2]);
-	for (readfile = read(fd_from, buffer, bytesinprocess); readfile > 0; readfile = read(fd_from, buffer, bytesinprocess))
+	readfile = read(fd_from, buffer, bytesinprocess);
+	while (readfile > 0)
 	{
 		writefile = write(fd_to, buffer, readfile);
 		if (writefile == -1)
 			errorMsg(99, "Error: Can't write to", argv[2]);
+		readfile = read(fd_from, buffer, bytesinprocess);
 	}
 	if (readfile == -1)
 		errorMsg(98, "Error: Can't read from file", argv[1]);
