@@ -16,7 +16,7 @@ void errorMsg(int exitCode, const char *msg, const char *fileName)
 }
 
 /**
- * main: entry point
+ * main - entry point
  * @argc: argument count
  * @argv: array of argument
  * Return: 0
